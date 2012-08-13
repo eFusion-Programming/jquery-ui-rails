@@ -160,10 +160,10 @@ $.widget( "ui.tabs", {
 		// initialization from scratch
 		if ( init ) {
 			// attach necessary classes for styling
-			this.element.addClass( "ui-tabs ui-widget ui-widget-content ui-corner-all" );
-			this.list.addClass( "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" );
-			this.lis.addClass( "ui-state-default ui-corner-top" );
-			this.panels.addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom" );
+			//this.element.addClass( "ui-tabs ui-widget ui-widget-content ui-corner-all" );
+			//this.list.addClass( "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" );
+			//this.lis.addClass( "ui-state-default ui-corner-top" );
+			//this.panels.addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom" );
 
 			// Selected tab
 			// use "selected" option or try to retrieve:

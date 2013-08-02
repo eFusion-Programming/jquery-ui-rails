@@ -1,7 +1,7 @@
 module Jquery
   module Ui
     module Rails
-      VERSION = "1.1.0"
+      VERSION = "4.0.4"
     end
   end
 end

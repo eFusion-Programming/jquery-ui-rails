@@ -2,20 +2,22 @@
 
 [![Build Status](https://secure.travis-ci.org/joliss/jquery-ui-rails.png?branch=master)](http://travis-ci.org/joliss/jquery-ui-rails) [![Dependency Status](https://gemnasium.com/joliss/jquery-ui-rails.png)](https://gemnasium.com/joliss/jquery-ui-rails)
 
-This gem packages the jQuery UI 1.8.20 assets (JavaScripts, stylesheets, and
+This gem packages the jQuery UI 1.10.0 assets (JavaScripts, stylesheets, and
 images) for the Rails 3.1+ [asset
 pipeline](http://guides.rubyonrails.org/asset_pipeline.html), so you never have
 to download a custom package through the [web
 interface](http://jqueryui.com/download) again.
+
+Also check out the
+[jquery-ui-sass-rails](https://github.com/jhilden/jquery-ui-sass-rails) gem,
+which allows you to override theme variables with Sass.
 
 ## Usage
 
 In your Gemfile, add:
 
 ```ruby
-group :assets do
-  gem 'jquery-ui-rails'
-end
+gem 'jquery-ui-rails'
 ```
 
 ## Require Everything
@@ -99,42 +101,53 @@ their matching CSS files in your application.css as well.
 //= require jquery.ui.accordion
 //= require jquery.ui.autocomplete
 //= require jquery.ui.button
-//= require jquery.ui.dialog
-//= require jquery.ui.slider
-//= require jquery.ui.tabs
 //= require jquery.ui.datepicker
+//= require jquery.ui.dialog
+//= require jquery.ui.menu
 //= require jquery.ui.progressbar
+//= require jquery.ui.slider
+//= require jquery.ui.spinner
+//= require jquery.ui.tabs
+//= require jquery.ui.tooltip
 ```
 
 For all of these, remember to `require` their matching CSS files in your
 application.css as well.
 
+#### I18n
+
 Datepicker has optional i18n modules for non-US locales, named
 `jquery.ui.datepicker-xx[-YY]`
-([list](https://github.com/jquery/jquery-ui/tree/1.8.20/ui/i18n)), for example:
+([list](https://github.com/joliss/jquery-ui-rails/tree/master/app/assets/javascripts)),
+for example:
 
 ```javascript
+//= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-pt-BR
 ```
+
+Note that you still need to include the main datepicker module. It is not
+required automatically [for performance
+reasons](https://github.com/joliss/jquery-ui-rails/issues/9#issuecomment-6524987).
 
 ### Effects
 
 ```javascript
-//= require jquery.effects.all
-//= require jquery.effects.core
-//= require jquery.effects.blind
-//= require jquery.effects.bounce
-//= require jquery.effects.clip
-//= require jquery.effects.drop
-//= require jquery.effects.explode
-//= require jquery.effects.fade
-//= require jquery.effects.fold
-//= require jquery.effects.highlight
-//= require jquery.effects.pulsate
-//= require jquery.effects.scale
-//= require jquery.effects.shake
-//= require jquery.effects.slide
-//= require jquery.effects.transfer
+//= require jquery.ui.effect.all
+//= require jquery.ui.effect
+//= require jquery.ui.effect-blind
+//= require jquery.ui.effect-bounce
+//= require jquery.ui.effect-clip
+//= require jquery.ui.effect-drop
+//= require jquery.ui.effect-explode
+//= require jquery.ui.effect-fade
+//= require jquery.ui.effect-fold
+//= require jquery.ui.effect-highlight
+//= require jquery.ui.effect-pulsate
+//= require jquery.ui.effect-scale
+//= require jquery.ui.effect-shake
+//= require jquery.ui.effect-slide
+//= require jquery.ui.effect-transfer
 ```
 
 ## Stylesheet Assets
@@ -168,11 +181,14 @@ pulled in as dependencies.
  *= require jquery.ui.accordion
  *= require jquery.ui.autocomplete
  *= require jquery.ui.button
- *= require jquery.ui.dialog
- *= require jquery.ui.slider
- *= require jquery.ui.tabs
  *= require jquery.ui.datepicker
+ *= require jquery.ui.dialog
+ *= require jquery.ui.menu
  *= require jquery.ui.progressbar
+ *= require jquery.ui.slider
+ *= require jquery.ui.spinner
+ *= require jquery.ui.tabs
+ *= require jquery.ui.tooltip
  */
 ```
 
@@ -183,10 +199,7 @@ pulled in as dependencies.
 For bugs in jQuery UI itself, head to the [jQuery UI Development
 Center](http://jqueryui.com/development).
 
-For bugs in this gem distribution, use the GitHub issue tracker. In particular,
-the asset dependencies between files are set up by this gem, not by the jQuery
-UI upstream. If you find that a JavaScript or CSS file does not pull in its
-dependencies correctly, please open an issue!
+For bugs in this gem distribution, use the GitHub issue tracker.
 
 ### Setup
 
